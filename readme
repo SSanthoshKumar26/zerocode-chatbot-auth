@@ -1,0 +1,2 @@
+to start client:npm run dev
+to start server:npm start
