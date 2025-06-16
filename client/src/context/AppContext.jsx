@@ -2,15 +2,26 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// Exporting AppContent instead of AppContext
-export const AppContent = createContext();
+// Provide a safe default value to avoid null context issues
+export const AppContent = createContext({
+  backendUrl: "",
+  isLoggedin: false,
+  setIsLoggedin: () => {},
+  userData: null,
+  setUserData: () => {},
+  loading: true,
+});
 
 export const AppContentProvider = ({ children }) => {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || ""; // Ensure URL is defined
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "";
   axios.defaults.withCredentials = true;
 
-  const [isLoggedin, setIsLoggedin] = useState(localStorage.getItem("isLoggedin") === "true");
-  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem("userData")) || null);
+  const [isLoggedin, setIsLoggedin] = useState(
+    localStorage.getItem("isLoggedin") === "true"
+  );
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("userData")) || null
+  );
   const [loading, setLoading] = useState(true);
 
   const getAuthState = async () => {
@@ -28,7 +39,7 @@ export const AppContentProvider = ({ children }) => {
 
       if (data.success) {
         setIsLoggedin(true);
-        await fetchUserData(token); // Fetch user data after successful auth check
+        await fetchUserData(token);
       } else {
         setIsLoggedin(false);
         setUserData(null);
@@ -65,9 +76,9 @@ export const AppContentProvider = ({ children }) => {
 
   useEffect(() => {
     if (!userData && loading) {
-      getAuthState(); // Only call getAuthState if userData is null
+      getAuthState();
     } else {
-      setLoading(false); // If userData is available, stop loading
+      setLoading(false);
     }
   }, [userData, loading]);
 
@@ -94,9 +105,15 @@ export const AppContentProvider = ({ children }) => {
     loading,
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  return <AppContent.Provider value={value}>{children}</AppContent.Provider>;
+  return (
+    <AppContent.Provider value={value}>
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <p className="text-xl font-semibold">Loading app...</p>
+        </div>
+      ) : (
+        children
+      )}
+    </AppContent.Provider>
+  );
 };
