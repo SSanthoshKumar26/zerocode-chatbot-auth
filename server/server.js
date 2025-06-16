@@ -15,9 +15,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 // CORS configuration
+
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from your frontend (port 5173)
-  credentials: true,
+  origin: "https://zerocode-chatbot-auth.vercel.app/", // ✅ your deployed frontend URL
+  credentials: true
 }));
 
 connectDB();
