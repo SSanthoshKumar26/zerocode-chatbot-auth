@@ -1,2 +1,117 @@
-to start client:npm run dev
-to start server:npm start
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+```markdown
+# 🤖 Chatbot Web Application
+
+A full-stack chatbot web application built with React, Node.js, Express, MongoDB, and Cohere API. It features secure authentication, real-time messaging, and intelligent AI-powered responses.
+
+---
+
+## 📐 Architecture Diagram
+
+![Architecture Diagram](client/src/assets/architecture.png)
+
+
+
+## 🚀 Getting Started
+
+### 1. 📦 Clone the Repository
+
+```bash
+git clone https://github.com/your-username/chatbot-app.git
+cd mern-auth
+````
+
+---
+
+### 2. ⚙️ Install Dependencies
+
+#### Client (Frontend)
+
+```bash
+cd client
+npm install
+```
+
+#### Server (Backend)
+
+```bash
+cd ../server
+npm install
+```
+
+---
+
+### 3. ▶️ Run the Application
+
+#### Start the Frontend
+
+```bash
+cd client
+npm run dev
+```
+
+#### Start the Backend
+
+```bash
+cd ../server
+npm start
+```
+
+---
+
+## 🔧 Environment Configuration
+
+Make sure to configure the following environment variables in the `.env` files:
+
+### For the Server (`server/.env`)
+
+```
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+COHERE_API_KEY=your_cohere_api_key
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_password_or_app_password
+```
+
+---
+
+## 🧰 Tech Stack
+
+* **Frontend:** React.js, TypeScript, Tailwind CSS
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas
+* **Authentication:** JWT
+* **Email Service:** Nodemailer + SMTP
+* **AI Integration:** Cohere Language Model API
+
+---
+
+## 📩 Features
+
+* ✅ User registration, login, and password reset
+* 💬 Interactive chat interface with AI responses
+* 🧠 Language understanding via Cohere API
+* 📧 Email integration for password recovery
+* ☁️ Cloud-based MongoDB for storing chat history and user data
+
+---
+
+## 📌 Notes
+
+* Ensure CORS is properly configured between frontend and backend.
+* Replace placeholder values in `.env` with your actual credentials.
+* Architecture diagram must be located at:
+  `client/src/assets/architecture.png`
+
+
+
+
