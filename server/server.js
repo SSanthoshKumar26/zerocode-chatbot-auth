@@ -17,7 +17,7 @@ app.use(cookieParser());
 // CORS configuration
 
 app.use(cors({
-  origin: "https://zerocode-chatbot-auth.vercel.app/", // ✅ your deployed frontend URL
+  origin: "https://zerocode-chatbot-auth.vercel.app/", 
   credentials: true
 }));
 
