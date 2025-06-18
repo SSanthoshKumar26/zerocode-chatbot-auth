@@ -26,7 +26,7 @@ A full-stack chatbot web application built with React, Node.js, Express, MongoDB
 ### 1. 📦 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/chatbot-app.git
+git clone https://github.com/SSanthoshKumar26/zerocode-chatbot-auth.git
 cd mern-auth
 ````
 
