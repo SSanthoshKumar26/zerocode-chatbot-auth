@@ -104,8 +104,6 @@ EMAIL_PASS=your_email_password_or_app_password
 
 * Ensure CORS is properly configured between frontend and backend.
 * Replace placeholder values in `.env` with your actual credentials.
-* Architecture diagram must be located at:
-  `client/src/assets/architecture.png`
 
 
 
